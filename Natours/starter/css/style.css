@@ -73,6 +73,10 @@ body {
   /* center the exact element */
   /* relation to the element itself positioning */
   transform: translate(-50%, -50%);
+
+  /* set all text element to center */
+  /* including the a tag */
+  text-align: center;
 }
 
 /* style the text */
@@ -84,6 +88,7 @@ body {
   /* removes the weird shakiness when animating from your child containers */
   /* This just fixes it */
   backface-visibility: hidden;
+  margin-bottom: 60px;
 }
 
 /* set the main and sub as block elements */
@@ -161,3 +166,43 @@ body {
     transform: translate(0);
   }
 }
+
+/* link is a pseudo class. are special state of a selector */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  /* transition propery should be in th initial state of the button */
+  transition: all 200ms;
+}
+
+.btn:hover {
+  /* when hovering, button floats a bit up */
+  transform: translateY(-3px);
+  /* add shadow based on the distance between the ground up */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* when you click the button state */
+.btn:active {
+  /* when you are clicking the button, the button is pushed down like how normal buttons usually do by -1px down */
+  transform: translate(-1px);
+  /* add shadow based on the distance between the ground up */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* style of the button */
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+/* two types of animation:
+animation property - complex
+  - use this if you want to be precise about your animation for different components
+transition property - simple
+  - use this for button state animation or simple move of components
+*/
