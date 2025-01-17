@@ -16,7 +16,7 @@ Dark green: #28b485
 
 body {
   /* inheritence */
-  font-family: "Lato" sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.7;
@@ -46,4 +46,52 @@ body {
   /* for third coordinate:for bottom right corner, span across the container width then add a 200px height to the bottom */
   /* for fourth coordinate:for the left corner, dont span x, then span to the bottom 100% */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  position: relative;
+}
+
+/* position the logo on the top left using absolute positioning */
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+/* set the size of the logo */
+.logo {
+  height: 35px;
+}
+
+/* center the text box using absolute positioning*/
+.text-box {
+  position: absolute;
+  /* position it in the relation of the parent element*/
+  /* positioning is based on the top left corner of the element x and y then based it to the parent container */
+  top: 40%;
+  left: 50%;
+
+  /* center the exact element */
+  /* relation to the element itself positioning */
+  transform: translate(-50%, -50%);
+}
+
+/* style the text */
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* set the main and sub as block elements */
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
 }
