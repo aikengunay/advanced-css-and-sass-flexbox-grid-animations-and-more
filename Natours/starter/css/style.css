@@ -79,6 +79,11 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+
+  /* back part gets hidden */
+  /* removes the weird shakiness when animating from your child containers */
+  /* This just fixes it */
+  backface-visibility: hidden;
 }
 
 /* set the main and sub as block elements */
@@ -87,6 +92,20 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+
+  /* set the animation for this text */
+  animation-name: moveInLeft;
+  /* duration of animation */
+  animation-duration: 1s;
+
+  /* start faster then go slower ease out */
+  animation-timing-function: ease-out;
+
+  /* the animation will happen three times */
+  /* animation-iteration-count: 3; */
+
+  /* delay animation before it starts */
+  /* animation-delay: 3s; */
 }
 
 .heading-primary-sub {
@@ -94,4 +113,51 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+
+  /* Set the animation */
+  /* use shorthand property */
+  animation: moveInRight 1s ease-out;
+}
+
+/* move text from left to right */
+@keyframes moveInLeft {
+  0% {
+    /* start the text with 0 opacity */
+    opacity: 0;
+    /* set the text from the left */
+    transform: translateX(-100px);
+    /* transform: rotate(360deg); */
+  }
+
+  /* 60% {
+    transform: rotate(0deg);
+  } */
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    /* then set it to 100% opacitity to be visible */
+    opacity: 1;
+    /* move it from left to right(or go back where the design is actually positioned */
+    /* look exactly the way it is designed and positinoed */
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
