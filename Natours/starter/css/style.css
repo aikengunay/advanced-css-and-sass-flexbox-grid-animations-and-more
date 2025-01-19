@@ -8,22 +8,37 @@ Dark green: #28b485
 */
 
 /* reset */
-* {
+/* slight improvement by adding after and before to take into account the sizing for other elements that has this pseudo elements */
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
+  /* if you set inheriteance here, it will automatically inherit whatever we put here in the body border box */
+  /* this is slighty better practice for css community (the other box sizing is in the body */
+  box-sizing: inherit;
+}
+
+html {
+  /* easy to replace the pixel unit to rem */
+  /* font-size: 10px; */
+  /* Make it percentage instead so user can customize the font size of the website */
+  font-size: 62.5%;
 }
 
 body {
   /* inheritence */
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
 
   /* add a padding around the body */
-  padding: 30px;
+  padding: 3rem;
+  /* if you set this here, all elements and tag will inherit this box sizing */
+  box-sizing: border-box;
 }
 
 .header {
@@ -53,13 +68,13 @@ body {
 /* position the logo on the top left using absolute positioning */
 .logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 /* set the size of the logo */
 .logo {
-  height: 35px;
+  height: 3.5rem;
 }
 
 /* center the text box using absolute positioning*/
@@ -88,15 +103,15 @@ body {
   /* removes the weird shakiness when animating from your child containers */
   /* This just fixes it */
   backface-visibility: hidden;
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
 /* set the main and sub as block elements */
 .heading-primary-main {
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3rem;
 
   /* set the animation for this text */
   animation-name: moveInLeft;
@@ -115,9 +130,9 @@ body {
 
 .heading-primary-sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
 
   /* Set the animation */
   /* use shorthand property */
@@ -130,7 +145,7 @@ body {
     /* start the text with 0 opacity */
     opacity: 0;
     /* set the text from the left */
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
     /* transform: rotate(360deg); */
   }
 
@@ -139,7 +154,7 @@ body {
   } */
 
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   100% {
@@ -154,11 +169,11 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   80% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   100% {
@@ -170,7 +185,7 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(3rem);
   }
 
   100% {
@@ -184,28 +199,29 @@ body {
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   display: inline-block;
-  border-radius: 100px;
+  border-radius: 10rem;
   /* transition propery should be in th initial state of the button */
   transition: all 200ms;
 
   position: relative;
+  font-size: 1.6rem;
 }
 
 .btn:hover {
   /* when hovering, button floats a bit up */
-  transform: translateY(-3px);
+  transform: translateY(-0.3rem);
   /* add shadow based on the distance between the ground up */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 /* when you click the button state */
 .btn:active {
   /* when you are clicking the button, the button is pushed down like how normal buttons usually do by -1px down */
-  transform: translate(-1px);
+  transform: translate(-0.1rem);
   /* add shadow based on the distance between the ground up */
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 /* style of the button */
@@ -233,7 +249,7 @@ transition property - simple
   /* set the same size as parent container (the button */
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
 
   position: absolute;
   top: 0;
