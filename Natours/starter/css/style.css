@@ -66,19 +66,19 @@ body {
 }
 
 /* position the logo on the top left using absolute positioning */
-.logo-box {
+.header__logo-box {
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
 
 /* set the size of the logo */
-.logo {
+.header__logo {
   height: 3.5rem;
 }
 
 /* center the text box using absolute positioning*/
-.text-box {
+.header__text-box {
   position: absolute;
   /* position it in the relation of the parent element*/
   /* positioning is based on the top left corner of the element x and y then based it to the parent container */
@@ -107,7 +107,7 @@ body {
 }
 
 /* set the main and sub as block elements */
-.heading-primary-main {
+.heading-primary--main {
   display: block;
   font-size: 6rem;
   font-weight: 400;
@@ -128,7 +128,7 @@ body {
   /* animation-delay: 3s; */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -225,7 +225,7 @@ body {
 }
 
 /* style of the button */
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
@@ -259,7 +259,7 @@ transition property - simple
   transition: all 400ms;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: white;
 }
 
@@ -269,7 +269,7 @@ transition property - simple
   opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
   animation: moveInBottom 500ms ease-out 0.75s;
 
   /* the 0% styles is already set before the animation starts */
