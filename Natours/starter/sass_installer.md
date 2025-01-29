@@ -26,6 +26,8 @@ npm install
 npm uinstall <packagename> --save
 ```
 
+---
+
 Yes, you can use `--save-dev` when installing `sass` if you only need it as a development dependency. This is typically the case if you're using Sass to compile SCSS files into CSS during development and not in the production environment.
 
 Here’s how to do it:
@@ -81,4 +83,22 @@ If you don’t use `--save-dev`, it will be added under `dependencies`:
 
 ---
 
-Let me know if you need further clarification! 😊
+How to compile sass you created?
+
+- Change the scripts in package.json
+
+```json
+  "scripts": {
+  "compile:sass": "sass sass/main.scss css/style.css"
+  },
+```
+
+then use this instead
+
+```json
+    "compile:sass": "sass sass/main.scss css/style.css -w"
+```
+
+this keep watching whatever we do in our code
+please do not close the terminal as you need to see the changes
+just open a new tab to do other things
