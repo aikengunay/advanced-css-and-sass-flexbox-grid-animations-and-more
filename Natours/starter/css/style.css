@@ -1,3 +1,49 @@
+/* move text from left to right */
+@keyframes moveInLeft {
+  0% {
+    /* start the text with 0 opacity */
+    opacity: 0;
+    /* set the text from the left */
+    transform: translateX(-10rem);
+    /* transform: rotate(360deg); */
+  }
+  /* 60% {
+      transform: rotate(0deg);
+    } */
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    /* then set it to 100% opacitity to be visible */
+    opacity: 1;
+    /* move it from left to right(or go back where the design is actually positioned */
+    /* look exactly the way it is designed and positinoed */
+    transform: translate(0);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
 /* reset */
 /* slight improvement by adding after and before to take into account the sizing for other elements that has this pseudo elements */
 *,
@@ -29,47 +75,6 @@ body {
   padding: 3rem;
   /* if you set this here, all elements and tag will inherit this box sizing */
   box-sizing: border-box;
-}
-
-.header {
-  height: 95vh;
-  /* set background image for the header */
-  /* add a linear gradient on top of the image */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  /* cover the viewport with the image, not cropping the image but making it fit based on the viewport */
-  background-size: cover;
-  background-position: top;
-  /* create a polygon shape for the header container */
-  /* for first coordinate:starting from the top left corner: start to the point x0 y0 */
-  /* for second coordinate:for the top right corner, span accrooss the container by 100% then y is 0 */
-  /* for third coordinate:for bottom right corner, span across the container width then add a 200px height to the bottom */
-  /* for fourth coordinate:for the left corner, dont span x, then span to the bottom 100% */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  position: relative;
-  /* position the logo on the top left using absolute positioning */
-  /* set the size of the logo */
-  /* center the text box using absolute positioning*/
-}
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
-.header__logo {
-  height: 3.5rem;
-}
-.header__text-box {
-  position: absolute;
-  /* position it in the relation of the parent element*/
-  /* positioning is based on the top left corner of the element x and y then based it to the parent container */
-  top: 40%;
-  left: 50%;
-  /* center the exact element */
-  /* relation to the element itself positioning */
-  transform: translate(-50%, -50%);
-  /* set all text element to center */
-  /* including the a tag */
-  text-align: center;
 }
 
 /* style the text */
@@ -109,52 +114,6 @@ body {
   animation: moveInRight 1s ease-out;
 }
 
-/* move text from left to right */
-@keyframes moveInLeft {
-  0% {
-    /* start the text with 0 opacity */
-    opacity: 0;
-    /* set the text from the left */
-    transform: translateX(-10rem);
-    /* transform: rotate(360deg); */
-  }
-  /* 60% {
-    transform: rotate(0deg);
-  } */
-  80% {
-    transform: translateX(1rem);
-  }
-  100% {
-    /* then set it to 100% opacitity to be visible */
-    opacity: 1;
-    /* move it from left to right(or go back where the design is actually positioned */
-    /* look exactly the way it is designed and positinoed */
-    transform: translate(0);
-  }
-}
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(10rem);
-  }
-  80% {
-    transform: translateX(-1rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0);
-  }
-}
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(3rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0);
-  }
-}
 .btn {
   /* when you click the button state */
   /* style of the button */
@@ -217,14 +176,54 @@ body {
 
 /* link is a pseudo class. are special state of a selector */
 /* two types of animation:
-animation property - complex
-  - The animation property is ideal for complex, multistep animations that involve more control over keyframes, timing, and behavior.
-  - use this if you want to be precise about your animation for different components
+  animation property - complex
+    - The animation property is ideal for complex, multistep animations that involve more control over keyframes, timing, and behavior.
+    - use this if you want to be precise about your animation for different components
 
-transition property - simple
-  - use this for button state animation or simple move of components
-  - The transition property is best for simple, state-based changes that occur on user interaction, like hover or focus effects.
-*/
+  transition property - simple
+    - use this for button state animation or simple move of components
+    - The transition property is best for simple, state-based changes that occur on user interaction, like hover or focus effects.
+  */
 /* pseudo elements are before and after */
+.header {
+  height: 95vh;
+  /* set background image for the header */
+  /* add a linear gradient on top of the image */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  /* cover the viewport with the image, not cropping the image but making it fit based on the viewport */
+  background-size: cover;
+  background-position: top;
+  /* create a polygon shape for the header container */
+  /* for first coordinate:starting from the top left corner: start to the point x0 y0 */
+  /* for second coordinate:for the top right corner, span accrooss the container by 100% then y is 0 */
+  /* for third coordinate:for bottom right corner, span across the container width then add a 200px height to the bottom */
+  /* for fourth coordinate:for the left corner, dont span x, then span to the bottom 100% */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative;
+  /* position the logo on the top left using absolute positioning */
+  /* set the size of the logo */
+  /* center the text box using absolute positioning*/
+}
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+.header__logo {
+  height: 3.5rem;
+}
+.header__text-box {
+  position: absolute;
+  /* position it in the relation of the parent element*/
+  /* positioning is based on the top left corner of the element x and y then based it to the parent container */
+  top: 40%;
+  left: 50%;
+  /* center the exact element */
+  /* relation to the element itself positioning */
+  transform: translate(-50%, -50%);
+  /* set all text element to center */
+  /* including the a tag */
+  text-align: center;
+}
 
 /*# sourceMappingURL=style.css.map */

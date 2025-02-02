@@ -1,0 +1,54 @@
+/* move text from left to right */
+@keyframes moveInLeft {
+  0% {
+    /* start the text with 0 opacity */
+    opacity: 0;
+    /* set the text from the left */
+    transform: translateX(-10rem);
+    /* transform: rotate(360deg); */
+  }
+
+  /* 60% {
+      transform: rotate(0deg);
+    } */
+
+  80% {
+    transform: translateX(1rem);
+  }
+
+  100% {
+    /* then set it to 100% opacitity to be visible */
+    opacity: 1;
+    /* move it from left to right(or go back where the design is actually positioned */
+    /* look exactly the way it is designed and positinoed */
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

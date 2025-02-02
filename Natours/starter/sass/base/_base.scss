@@ -1,0 +1,20 @@
+/* reset */
+/* slight improvement by adding after and before to take into account the sizing for other elements that has this pseudo elements */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+  /* if you set inheriteance here, it will automatically inherit whatever we put here in the body border box */
+  /* this is slighty better practice for css community (the other box sizing is in the body */
+  box-sizing: inherit;
+}
+
+html {
+  /* easy to replace the pixel unit to rem */
+  /* font-size: 10px; */
+  /* Make it percentage instead so user can customize the font size of the website */
+  // this defines what rem is
+  font-size: 62.5%;
+}

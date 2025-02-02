@@ -1,0 +1,87 @@
+@use "../base/global" as *;
+
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    /* transition propery should be in th initial state of the button */
+    transition: all 200ms;
+
+    position: relative;
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    /* when hovering, button floats a bit up */
+    transform: translateY(-0.3rem);
+    /* add shadow based on the distance between the ground up */
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    /* this gives a pulse effect by giving opactiy to 0 */
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  /* when you click the button state */
+  &:active {
+    /* when you are clicking the button, the button is pushed down like how normal buttons usually do by -1px down */
+    transform: translate(-0.1rem);
+    /* add shadow based on the distance between the ground up */
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  /* style of the button */
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &--animated {
+    animation: moveInBottom 500ms ease-out 0.75s;
+
+    /* the 0% styles is already set before the animation starts */
+    animation-fill-mode: backwards;
+  }
+
+  /* this is hidden behind the button */
+  &::after {
+    content: "";
+    display: inline-block;
+    /* set the same size as parent container (the button */
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* this will make the layer hidden or be put behind the btn behind the button */
+    z-index: -1;
+    // Animate th button pulse effect
+    transition: all 400ms;
+  }
+}
+
+/* link is a pseudo class. are special state of a selector */
+
+/* two types of animation:
+  animation property - complex
+    - The animation property is ideal for complex, multistep animations that involve more control over keyframes, timing, and behavior.
+    - use this if you want to be precise about your animation for different components
+    
+  transition property - simple
+    - use this for button state animation or simple move of components
+    - The transition property is best for simple, state-based changes that occur on user interaction, like hover or focus effects.
+  */
+
+/* pseudo elements are before and after */

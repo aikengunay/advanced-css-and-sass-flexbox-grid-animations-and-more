@@ -1,0 +1,5 @@
+// this is the current solution for styles to work acroess other scss
+// you also need to use the global as @use "../base/global" as *;
+@forward "../abstracts/variables";
+@forward "../abstracts/mixins";
+@forward "../abstracts/functions";
