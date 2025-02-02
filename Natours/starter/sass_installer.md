@@ -102,3 +102,9 @@ then use this instead
 this keep watching whatever we do in our code
 please do not close the terminal as you need to see the changes
 just open a new tab to do other things
+
+to make it work. go to terminal and use:
+
+```bash
+npm run compile:sass
+```
