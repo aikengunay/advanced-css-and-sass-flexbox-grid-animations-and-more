@@ -12,6 +12,7 @@
 @use "components/button";
 
 // layout
+@use "layout/grid";
 @use "layout/header";
 
 // ✅ Page-specific styles (Import directly, avoid `as *`)
