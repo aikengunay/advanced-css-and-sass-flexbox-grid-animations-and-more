@@ -2,7 +2,7 @@
 
 .row {
   max-width: $grid-width;
-  background-color: #eee;
+  // background-color: #eee;
   // center block elements inside of the parent container
   // horizontally center based on the viewport
   margin: 0 auto;
@@ -20,8 +20,8 @@
   // the = sign only means if this words contains within the class
   // the $ means select any class that ends with col-
   [class^="col-"] {
-    background-color: orangered;
-    color: white;
+    // background-color: orangered;
+    // color: white;
     // float columns to the left side of the row container
     float: left;
 
