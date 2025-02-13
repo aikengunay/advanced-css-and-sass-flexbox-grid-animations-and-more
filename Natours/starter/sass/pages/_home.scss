@@ -7,3 +7,27 @@
   // move section above the design of the polygon
   margin-top: -20vh;
 }
+
+.section-features {
+  padding: 20rem 0;
+  // add the background image
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/nat-4.jpg);
+  // set image to fit the background
+  background-size: cover;
+
+  // skew the design
+  transform: skewY(-7deg);
+  // push section at the top
+  margin-top: -10rem;
+
+  // skew back the design elements to normal
+  // select direct child (row) inside of section-features container
+  & > * {
+    transform: skewY(7deg);
+  }
+}
