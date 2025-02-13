@@ -1,0 +1,67 @@
+@use "../base/global" as *;
+
+// parent container of 2 cards stack on top of each other
+.card {
+  // add perspective when card is flip on hover
+  // the lower the value, the more dramatic the perspective of the flip will be
+  // 150 rem is somehow the sweet spot
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+
+  // also specify the height so it works
+  height: 50rem;
+
+  &__side {
+    color: white;
+    font-size: 2rem;
+    // this needs two heights for card and side
+    height: 50rem;
+    transition: all 0.8s ease;
+
+    // this will allow to cards be on top one another
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    // hides the backpart of the element
+    // when we use this, we can use the rotating effect
+    // Used `backface-visibility: hidden` to hide back side when flipped
+    backface-visibility: hidden;
+
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color: $color-black, $alpha: 0.15);
+
+    &--front {
+      background-color: white;
+    }
+
+    &--back {
+      // start the content already flipped
+      transform: rotateY(180deg);
+
+      &-1 {
+        // add gradient color to the back card
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+    }
+  }
+
+  // Hover the card and also change the side
+  // .card:hover .card__side
+  // Flipped `.card__side--front` to `rotateY(180deg)` on hover
+  &:hover &__side--front {
+    transform: rotateY(180deg);
+  }
+
+  // when hovered, it will go back to be readable
+  // this will show up the back part of the card
+  // Restored `.card__side--back` to `rotateY(0deg)` on hover
+  &:hover &__side--back {
+    transform: rotateY(0deg);
+  }
+}
