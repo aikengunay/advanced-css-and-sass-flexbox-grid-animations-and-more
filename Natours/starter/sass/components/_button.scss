@@ -31,7 +31,7 @@
   /* when you click the button state */
   &:active {
     /* when you are clicking the button, the button is pushed down like how normal buttons usually do by -1px down */
-    transform: translate(-0.1rem);
+    transform: translateY(-0.1rem);
     /* add shadow based on the distance between the ground up */
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }
@@ -43,6 +43,15 @@
 
     &::after {
       background-color: $color-white;
+    }
+  }
+
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
     }
   }
 
