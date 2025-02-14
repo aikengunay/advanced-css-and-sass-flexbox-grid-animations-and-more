@@ -20,6 +20,7 @@
   /* for second coordinate:for the top right corner, span accrooss the container by 100% then y is 0 */
   /* for third coordinate:for bottom right corner, span across the container width then add a 200px height to the bottom */
   /* for fourth coordinate:for the left corner, dont span x, then span to the bottom 100% */
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
   position: relative;

@@ -2,6 +2,7 @@
 
 // parent container of 2 cards stack on top of each other
 .card {
+  // FUNCTIONALITY
   // add perspective when card is flip on hover
   // the lower the value, the more dramatic the perspective of the flip will be
   // 150 rem is somehow the sweet spot
@@ -10,13 +11,11 @@
   position: relative;
 
   // also specify the height so it works
-  height: 50rem;
+  height: 52rem;
 
   &__side {
-    color: white;
-    font-size: 2rem;
     // this needs two heights for card and side
-    height: 50rem;
+    height: 52rem;
     transition: all 0.8s ease;
 
     // this will allow to cards be on top one another
@@ -30,6 +29,8 @@
     backface-visibility: hidden;
 
     border-radius: 3px;
+    // hide elements inside the card to hide overflow like the image
+    overflow: hidden;
     box-shadow: 0 1.5rem 4rem rgba($color: $color-black, $alpha: 0.15);
 
     &--front {
@@ -37,7 +38,7 @@
     }
 
     &--back {
-      // start the content already flipped
+      // start the content already flipped to 0 on hover
       transform: rotateY(180deg);
 
       &-1 {
@@ -53,9 +54,9 @@
 
   // Hover the card and also change the side
   // .card:hover .card__side
-  // Flipped `.card__side--front` to `rotateY(180deg)` on hover
+  // Flipped `.card__side--front` to `rotateY(-180deg)` on hover
   &:hover &__side--front {
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
   }
 
   // when hovered, it will go back to be readable
@@ -63,5 +64,80 @@
   // Restored `.card__side--back` to `rotateY(0deg)` on hover
   &:hover &__side--back {
     transform: rotateY(0deg);
+  }
+
+  // Front card Side styling
+  &__picture {
+    // cover and fir the image based on the size
+    background-size: cover;
+    height: 23rem;
+    // blend the background
+    background-blend-mode: screen;
+    // add polygon shape to the background
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    &--1 {
+      // add gradient to the image
+      background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        ),
+        url(../img/nat-5.jpg);
+    }
+    &--2 {
+      background-image: url(../img/nat-5.jpg);
+    }
+    &--3 {
+      background-image: url(../img/nat-5.jpg);
+    }
+  }
+
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-white;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+  }
+
+  // the heading style of the card
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    // this adds a padding when there is a break in two line
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    &--1 {
+      // add a background gradient to the text
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-secondary-light, 0.85),
+        rgba($color-secondary-dark, 0.85)
+      );
+    }
+  }
+
+  &__details {
+    padding: 3rem;
+    ul {
+      list-style: none;
+      width: 80%;
+      // center the list
+      margin: 0 auto;
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light-2;
+        }
+      }
+    }
   }
 }
