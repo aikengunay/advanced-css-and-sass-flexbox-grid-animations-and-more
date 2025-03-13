@@ -39,6 +39,8 @@
 }
 
 .section-stories {
+  position: relative;
   padding: 15rem 0;
-  background-color: $color-grey-light-1;
+  // remove this as the video will be displayed to the side
+  // background-color: $color-grey-light-1;
 }
