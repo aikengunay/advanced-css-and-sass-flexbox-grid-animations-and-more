@@ -1,6 +1,7 @@
 @use "../base/global" as *;
 
 .btn {
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -13,6 +14,10 @@
 
     position: relative;
     font-size: $default-font-size;
+
+    //change for the button element
+    border: none;
+    cursor: pointer;
   }
 
   &:hover {
@@ -29,7 +34,9 @@
   }
 
   /* when you click the button state */
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     /* when you are clicking the button, the button is pushed down like how normal buttons usually do by -1px down */
     transform: translateY(-0.1rem);
     /* add shadow based on the distance between the ground up */
