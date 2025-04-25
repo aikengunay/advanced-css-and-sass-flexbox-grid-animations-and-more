@@ -21,6 +21,7 @@
 @use "layout/footer";
 @use "layout/grid";
 @use "layout/header";
+@use "layout/navigation";
 
 // ✅ Page-specific styles (Import directly, avoid `as *`)
 @use "pages/home";
