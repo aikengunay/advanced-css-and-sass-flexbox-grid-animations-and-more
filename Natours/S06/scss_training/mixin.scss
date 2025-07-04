@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+// variable
+$color-primary: #f9ed69; //yellow color
+$color-secondary: #f08a5d; //orange
+$color-tertiary: #b83b5e; //pink
+$color-text-dark: #333;
+$color-text-light: #eee;
+
+$width-button: 150px;
+
+// its like a function declaration or function but called mixin but for css only just to apply reusable styles
+@mixin clearfix {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+@mixin style-link-text($col) {
+  text-decoration: none;
+  text-transform: uppercase;
+  // pass the col variable to color property
+  color: $col;
+}
+
+// this is a function that executes operations
+@function divide($a, $b) {
+  @return $a / $b;
+}
+
+nav {
+  //  multiply it by 1 px to take the measurement of 30px
+  // this is how you use function in scss
+  margin: divide(60, 2) * 1px; //30px
+  background-color: $color-primary;
+
+  // calling the mixin where we apply the properties
+  @include clearfix;
+}
+
+.navigation {
+  list-style: none;
+  float: left;
+
+  li {
+    display: inline-block;
+    margin-left: 30px;
+
+    &:first-child {
+      margin: 0;
+    }
+
+    a:link {
+      @include style-link-text($color-text-dark);
+    }
+  }
+}
+
+.buttons {
+  float: right;
+}
+
+// this is the base component of the button
+//base design of the button
+// so why not use the mixin instead of of extend?
+// this code was not copied to other class selector like btn-main
+// mixin is basically where the mixin is copied to the selector while extends is other way around
+// so now you have btn-main link and btn hot link here
+// not a big fan of extends, but this particular example, is good because it is related like base component of button
+%btn-placeholder {
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 100px;
+  width: $width-button;
+  // specify the argument on what color you will apply
+  @include style-link-text($color-text-light);
+}
+
+// this selector was copied to btn-placeholder
+.btn-main {
+  &:link {
+    @extend %btn-placeholder;
+    background-color: $color-secondary;
+  }
+
+  &:hover {
+    background-color: darken($color-secondary, 15%);
+  }
+}
+
+.btn-hot {
+  &:link {
+    @extend %btn-placeholder;
+    background-color: $color-tertiary;
+  }
+
+  &:hover {
+    background-color: lighten($color-tertiary, 10%);
+  }
+}

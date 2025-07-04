@@ -1,0 +1,23 @@
+@use "../base/global" as *;
+
+// position video behind the story content
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.15;
+  //   video is overflowing tho the padding, so use this to cut out the content
+  overflow: hidden;
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    // fill the video the entire parent while maintaing the aspect ratio
+    // cover video to the story element
+    // similar to background size to cover
+    object-fit: cover;
+  }
+}

@@ -1,0 +1,83 @@
+@use "../base/global" as *;
+
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color: $color-black, $alpha: 0.1);
+  // add transparent background to story container
+  background-color: rgba($color-white, 0.6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+
+  transform: skewX(-12deg);
+
+  // profile photo
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    // position shape at the left side of the container
+    float: left;
+    //add physical external shape
+    // radius of circle
+    // the text beside of it will wrap around the circle
+    // defines where the content floats around the element. so text will wrap around the circle
+    // use webkit so it can support other browsers
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+
+    // make it look of the shape: circle
+    -wekit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+
+    //move circle to the left
+    transform: translateX(-3rem) skewX(12deg);
+
+    position: relative;
+  }
+
+  // fill the image in the circle using height property
+  &__img {
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4);
+    transition: all 0.5s;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+    backface-visibility: hidden;
+  }
+
+  &__caption {
+    // center text inside the caption
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+    // remove small glitch after hovering out
+    // this fix if there are jitters in transition
+    backface-visibility: hidden;
+  }
+
+  // hover story container and the caption
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  //hover story and image effect
+  &:hover &__img {
+    //scale image
+    transform: translateX(-4rem) scale(1);
+    // filter: add filters to images
+    // add blur and tone down brightness for darker look
+    filter: blur(3px) brightness(80%);
+  }
+}

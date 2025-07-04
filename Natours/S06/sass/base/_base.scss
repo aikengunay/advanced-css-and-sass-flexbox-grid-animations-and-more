@@ -1,0 +1,40 @@
+@use "../base/global" as *;
+
+/* reset */
+/* slight improvement by adding after and before to take into account the sizing for other elements that has this pseudo elements */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+  /* if you set inheriteance here, it will automatically inherit whatever we put here in the body border box */
+  /* this is slighty better practice for css community (the other box sizing is in the body */
+  box-sizing: inherit;
+}
+
+html {
+  /* easy to replace the pixel unit to rem */
+  /* font-size: 10px; */
+  /* Make it percentage instead so user can customize the font size of the website */
+  // this defines what rem is
+  font-size: 62.5%; // 1rem == 10px
+
+  // BIG DESKTOP FIRST (min-width - goes first)
+  @include respond(big-desktop) {
+    font-size: 75%; // 1rem = 12px, 12/16 = 75%
+  }
+
+  // MAX-WIDTH QUERIES (largest to smallest)
+  @include respond(tab-land) {
+    font-size: 56.25%; // 1rem = 9px, 9/16 = 56.25%
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%; // 1rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(phone) {
+    font-size: 50%; // 1rem = 8px, 8/16 = 50%
+  }
+}

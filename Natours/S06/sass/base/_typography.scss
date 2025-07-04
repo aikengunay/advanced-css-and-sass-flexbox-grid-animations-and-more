@@ -1,0 +1,98 @@
+@use "../base/global" as *;
+
+body {
+  /* inheritence */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: $color-grey-dark;
+
+  /* add a padding around the body */
+  padding: 3rem;
+  /* if you set this here, all elements and tag will inherit this box sizing */
+  box-sizing: border-box;
+}
+
+/* style the text */
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+
+  /* back part gets hidden */
+  /* removes the weird shakiness when animating from your child containers */
+  /* This just fixes it */
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+
+  /* set the main and sub as block elements */
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3rem;
+
+    /* set the animation for this text */
+    animation-name: moveInLeft;
+    /* duration of animation */
+    animation-duration: 1s;
+
+    /* start faster then go slower ease out */
+    animation-timing-function: ease-out;
+
+    /* the animation will happen three times */
+    /* animation-iteration-count: 3; */
+
+    /* delay animation before it starts */
+    /* animation-delay: 3s; */
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+
+    /* Set the animation */
+    /* use shorthand property */
+    animation: moveInRight 1s ease-out;
+  }
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  // set the text to have a gradient
+  background-image: linear-gradient(
+    to right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  // set the gradient in the text
+  background-clip: text;
+  // make the text color transparent so the gradient appears in the text
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+  }
+}
+
+.heading-tertiary {
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: $default-font-size;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}

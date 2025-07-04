@@ -1,0 +1,52 @@
+@use "../base/global" as *;
+
+// composition image section
+.composition {
+  position: relative;
+
+  &__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color: $color-black, $alpha: 0.4);
+    border-radius: 2px;
+    position: absolute;
+    // position the image at the same level
+    z-index: 1;
+    transition: all 0.2s;
+    // set a gap or gutter between the container
+    outline-offset: 2rem;
+
+    // position image 1 a biton the top
+    &--p1 {
+      left: 0;
+      top: -2rem;
+    }
+    // position image  at the right
+    &--p2 {
+      right: 0;
+      top: 2rem;
+    }
+
+    // position image at the bottom middle
+    &--p3 {
+      left: 20%;
+      top: 10rem;
+    }
+
+    // hover effect
+    &:hover {
+      // similar to border but can add gap between the border and container using outline offset
+      outline: 1.5rem solid $color-primary;
+      // increase the image in size and move it upward
+      transform: scale(1.05) translateY(-5rem);
+      box-shadow: 0 2.5rem 4rem rgba($color: $color-black, $alpha: 0.5);
+      //   once hover, image overlaps and gets on top
+      z-index: 2;
+    }
+  }
+
+  // hover on the composition container then select the photo that is not hovered
+  &:hover &__photo:not(:hover) {
+    // when we hover our selected image, the other images that are not hovered will decrease in size
+    transform: scale(0.95);
+  }
+}

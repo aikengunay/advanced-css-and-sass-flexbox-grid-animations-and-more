@@ -1,0 +1,56 @@
+@use "../base/global" as *;
+
+.header {
+  height: 95vh;
+  /* set background image for the header */
+  /* add a linear gradient on top of the image */
+  // in sass, you can put the color variable directly
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/hero.jpg);
+  /* cover the viewport with the image, not cropping the image but making it fit based on the viewport */
+  background-size: cover;
+  background-position: top;
+
+  /* create a polygon shape for the header container */
+  /* for first coordinate:starting from the top left corner: start to the point x0 y0 */
+  /* for second coordinate:for the top right corner, span accrooss the container by 100% then y is 0 */
+  /* for third coordinate:for bottom right corner, span across the container width then add a 200px height to the bottom */
+  /* for fourth coordinate:for the left corner, dont span x, then span to the bottom 100% */
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  position: relative;
+
+  /* position the logo on the top left using absolute positioning */
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  /* set the size of the logo */
+  &__logo {
+    height: 3.5rem;
+  }
+
+  /* center the text box using absolute positioning*/
+  &__text-box {
+    position: absolute;
+    /* position it in the relation of the parent element*/
+    /* positioning is based on the top left corner of the element x and y then based it to the parent container */
+    top: 40%;
+    left: 50%;
+
+    /* center the exact element */
+    /* relation to the element itself positioning */
+    transform: translate(-50%, -50%);
+
+    /* set all text element to center */
+    /* including the a tag */
+    text-align: center;
+  }
+}

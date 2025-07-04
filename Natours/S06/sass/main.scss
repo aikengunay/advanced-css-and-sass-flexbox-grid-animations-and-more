@@ -1,0 +1,28 @@
+// ✅ Abstracts (Global variables, mixins, and functions)
+// use the as * For Global Variables, Mixins, and Functions
+@use "base/global" as *;
+
+// ✅ Base styles (No `as *` to prevent unnecessary global exposure)
+@use "base/animations";
+@use "base/base";
+@use "base/typography";
+@use "base/utilities";
+
+// ✅ Component
+@use "components/bg-video";
+@use "components/button";
+@use "components/card";
+@use "components/feature-box";
+@use "components/composition";
+@use "components/form";
+@use "components/popup";
+@use "components/story";
+
+// layout
+@use "layout/footer";
+@use "layout/grid";
+@use "layout/header";
+@use "layout/navigation";
+
+// ✅ Page-specific styles (Import directly, avoid `as *`)
+@use "pages/home";
